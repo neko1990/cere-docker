@@ -18,6 +18,7 @@ RUN apt-get update \
          ruby-ronn \
          python python-matplotlib python-jinja2 python-pygraphviz python-sklearn python-numpy python-networkx python-pip \
          google-perftools libgoogle-perftools-dev numactl dc \
+         unzip \
     && pip install pulp \
     && ln -s /usr/bin/llvm-config-3.3 /usr/local/bin/llvm-config \
     && ln -s /usr/lib/x86_64-linux-gnu/libgfortran.so.3 /usr/lib/libgfortran.so
@@ -28,8 +29,9 @@ RUN apt-get autoclean \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
-RUN git clone https://github.com/benchmark-subsetting/cere
-RUN cd cere && ./autogen.sh \
+RUN curl -L https://github.com/benchmark-subsetting/cere/archive/master.zip -o /tmp/cere.zip \
+    && unzip -uo /tmp/cere.zip -d /opt/
+RUN cd cere-master && ./autogen.sh \
     && ./configure \
        --with-dragonegg=/usr/lib/gcc/x86_64-linux-gnu/4.7/plugin/dragonegg.so \
        CC=gcc-4.7 \
