@@ -1,0 +1,4 @@
+box:
+    build: .
+    volumes:
+      - .:/opt

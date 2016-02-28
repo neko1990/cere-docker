@@ -1,0 +1,10 @@
+deb http://mirrors.xmu.edu.cn/ubuntu/archive trusty main restricted universe multiverse
+deb http://mirrors.xmu.edu.cn/ubuntu/archive trusty-backports main restricted universe multiverse
+deb http://mirrors.xmu.edu.cn/ubuntu/archive trusty-proposed main restricted universe multiverse
+deb http://mirrors.xmu.edu.cn/ubuntu/archive trusty-security main restricted universe multiverse
+deb http://mirrors.xmu.edu.cn/ubuntu/archive trusty-updates main restricted universe multiverse 
+deb-src http://mirrors.xmu.edu.cn/ubuntu/archive trusty main restricted universe multiverse
+deb-src http://mirrors.xmu.edu.cn/ubuntu/archive trusty-backports main restricted universe multiverse
+deb-src http://mirrors.xmu.edu.cn/ubuntu/archive trusty-proposed main restricted universe multiverse
+deb-src http://mirrors.xmu.edu.cn/ubuntu/archive trusty-security main restricted universe multiverse
+deb-src http://mirrors.xmu.edu.cn/ubuntu/archive trusty-updates main restricted universe multiverse
