@@ -7,8 +7,8 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 ## work around in Mainland China
-RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
-ADD sources.list /etc/apt/sources.list
+# RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
+# ADD sources.list /etc/apt/sources.list
 
 RUN apt-get update \
     && apt-get install -y \
@@ -23,13 +23,12 @@ RUN apt-get update \
     && ln -s /usr/lib/x86_64-linux-gnu/libgfortran.so.3 /usr/lib/libgfortran.so
 
 # clean up
-# RUN apt-get autoclean \
-#     && apt-get autoremove \
-#     && rm -rf /var/lib/apt/lists/*
+RUN apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
-ADD cere /opt/cere
-# RUN git clone https://github.com/benchmark-subsetting/cere
+RUN git clone https://github.com/benchmark-subsetting/cere
 RUN cd cere && ./autogen.sh \
     && ./configure \
        --with-dragonegg=/usr/lib/gcc/x86_64-linux-gnu/4.7/plugin/dragonegg.so \
